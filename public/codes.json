@@ -1,11 +1,38 @@
 [
-    {
-      "title": "Biggest of Three Numbers",
-      "code": "#!/bin/bash\n\necho \"Enter the first number:\"\nread num1\n\necho \"Enter the second number:\"\nread num2\n\necho \"Enter the third number:\"\nread num3\n\n# Initialize the biggest variable to the first number\nbiggest=$num1\n\n# Check if the second number is bigger than the current biggest\nif [ $num2 -gt $biggest ]\nthen\n  biggest=$num2\nfi\n\n# Check if the third number is bigger than the current biggest\nif [ $num3 -gt $biggest ]\nthen\n  biggest=$num3\nfi\n\necho \"The biggest number is: $biggest\"\n"
-    },
-    {
-      "title": "Armstrong Number",
-      "code": "#!/bin/bash\n\necho \"Enter a number:\"\nread num\n\n# Count the number of digits\nn=${#num}\n\n# Initialize the sum variable\nsum=0\n\n# Iterate over each digit\nfor (( i=0; i<$n; i++ ))\ndo\n  # Extract the digit at position i\ndigit=${num:i:1}\n\n  # Add the digit raised to the power of n to the sum\n  sum=$(( $sum + $digit ** $n ))\ndone\n\n# Check if the sum is equal to the original number\nif [ $sum -eq $num ]\nthen\n  echo \"$num is an Armstrong number\"\nelse\n  echo \"$num is not an Armstrong number\"\nfi\n"
-    }
-  ]
-  
+  {
+    "title": "Biggest of Three Numbers",
+    "code": "#!/bin/bash\n\necho \"Enter the first number:\"\nread num1\n\necho \"Enter the second number:\"\nread num2\n\necho \"Enter the third number:\"\nread num3\n\n# Initialize the biggest variable to the first number\nbiggest=$num1\n\n# Check if the second number is bigger than the current biggest\nif [ $num2 -gt $biggest ]\nthen\n  biggest=$num2\nfi\n\n# Check if the third number is bigger than the current biggest\nif [ $num3 -gt $biggest ]\nthen\n  biggest=$num3\nfi\n\necho \"The biggest number is: $biggest\"\n"
+  },
+  {
+    "title": "Armstrong Number",
+    "code": "#!/bin/bash\n\necho \"Enter a number:\"\nread num\n\n# Count the number of digits\nn=${#num}\n\n# Initialize the sum variable\nsum=0\n\n# Iterate over each digit\nfor (( i=0; i<$n; i++ ))\ndo\n  # Extract the digit at position i\ndigit=${num:i:1}\n\n  # Add the digit raised to the power of n to the sum\n  sum=$(( $sum + $digit ** $n ))\ndone\n\n# Check if the sum is equal to the original number\nif [ $sum -eq $num ]\nthen\n  echo \"$num is an Armstrong number\"\nelse\n  echo \"$num is not an Armstrong number\"\nfi\n"
+  },
+  {
+    "title": "Reverse the Number",
+    "code": "#!/bin/bash\n\n echo \"Enter a number:\"\n read num\n \n # Initialize the reversed variable\n reversed=0\n \n # Loop until the number becomes 0\n while [ $num -ne 0 ]\n do\n # Extract the last digit of the number\n digit=$(( $num % 10 ))\n \n # Append the digit to the reversed number\n reversed=$(( $reversed * 10 + $digit ))\n \n # Remove the last digit from the number\n num=$(( $num / 10 ))\n done\n \n echo \"The reversed number is: $reversed\"\n"
+  },
+  {
+    "title": "Fibonacci Series",
+    "code": "#!/bin/bash\n\necho \"Enter the number of terms in the Fibonacci series:\"\nread n\n\n# Initialize the first two terms\na=0\nb=1\n\necho \"The Fibonacci series is:\"\n\n# Loop to generate the series\nfor (( i=0; i<$n; i++ ))\ndo\n echo -n \"$a \"\n\n \n next=$(( $a + $b ))\n\n # Update the values of a and b for the next iteration\n a=$b\n b=$next\ndone\n\necho"
+  },
+  {
+    "title": "Sum of Series",
+    "code": "#!/bin/bash\n\nsum=0\ni=1\necho \"Enter the number of terms:\"\nread n\necho \"Enter the numbers:\"\nwhile [ $i -le $n ]\ndo\n  read a\n  sum=`expr $a + $sum`\n  i=`expr $i + 1`\ndone\necho \"Sum is $sum\"\n"
+  },
+  {
+    "title": "Week of the Day",
+    "code": "echo Enter First Character of Week\nread c\ncase \"$c\" in\n\"M\")\necho The Week of the Day is Monday;;\n\"T\")\necho The Week of the Day is Tuesday;;\n\"W\")\necho The Week of the Day is Wednesday;;\n\"t\")\necho The Week of the Day is Thursday;;\n\"F\")\necho The Week of the Day is Friday;;\n\"S\"):\necho The Week of the Day is Saturday;;\n\"s\")\necho The Week of the Day is Sunday;;\n*)\necho “Invalid Starting Character”;\nesac"
+  },
+  {
+    "title": "Zombie Process",
+    "code": "#include <stdlib.h>\n#include <stdio.h>\n#include <sys/types.h>\n#include <unistd.h>\n\nint main (){\n // Fork returns process id in parent process\n pid_t child_pid = fork ();\n // Parent process\n if (child_pid > 0) {\n sleep(50);\n printf(\"Zombie Parent \n\");\n }\n // Child process\n else {\n printf (\"Zombie Child\n\");\n exit(0);\n }\n return 0;\n}"
+  },
+  {
+    "title": "Orphan Process (1st Program)",
+    "code": "#include<stdio.h>\n#include <sys/types.h>\n#include <unistd.h>\n\nint main(){\n    // Create a child process\n    int pid = fork();\n\n    if (pid > 0) {\n        printf(\"Orphan Parent \\n\");\n    }\n    // Note that pid is 0 in child process and negative if fork() fails\n    else if (pid == 0) {\n        sleep(30);\n        printf(\"Orphan Child \\n\");\n    }\n\n    return 0;\n}"
+  },
+  {
+    "title": "Orphan Process (2nd Program)",
+    "code": "#include<stdio.h>\n#include <sys/types.h>\n#include <unistd.h>\n\nint main(){\n    // Create a child process\n    int pid = fork();\n\n    if (pid > 0) {\n        printf(\"Orphan Parent \\n\");\n    }\n    // Note that pid is 0 in child process and negative if fork() fails\n    else if (pid == 0) {\n        sleep(30);\n        printf(\"Orphan Child \\n\");\n    }\n\n    return 0;\n}"
+  }
+]
