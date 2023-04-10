@@ -1,0 +1,11 @@
+[
+    {
+      "title": "Biggest of Three Numbers",
+      "code": "#!/bin/bash\n\necho \"Enter the first number:\"\nread num1\n\necho \"Enter the second number:\"\nread num2\n\necho \"Enter the third number:\"\nread num3\n\n# Initialize the biggest variable to the first number\nbiggest=$num1\n\n# Check if the second number is bigger than the current biggest\nif [ $num2 -gt $biggest ]\nthen\n  biggest=$num2\nfi\n\n# Check if the third number is bigger than the current biggest\nif [ $num3 -gt $biggest ]\nthen\n  biggest=$num3\nfi\n\necho \"The biggest number is: $biggest\"\n"
+    },
+    {
+      "title": "Armstrong Number",
+      "code": "#!/bin/bash\n\necho \"Enter a number:\"\nread num\n\n# Count the number of digits\nn=${#num}\n\n# Initialize the sum variable\nsum=0\n\n# Iterate over each digit\nfor (( i=0; i<$n; i++ ))\ndo\n  # Extract the digit at position i\ndigit=${num:i:1}\n\n  # Add the digit raised to the power of n to the sum\n  sum=$(( $sum + $digit ** $n ))\ndone\n\n# Check if the sum is equal to the original number\nif [ $sum -eq $num ]\nthen\n  echo \"$num is an Armstrong number\"\nelse\n  echo \"$num is not an Armstrong number\"\nfi\n"
+    }
+  ]
+  

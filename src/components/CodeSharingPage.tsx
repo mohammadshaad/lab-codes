@@ -1,26 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Code = {
   title: string;
   code: string;
 };
 
-const codes: Code[] = [
-  
-  {
-    title: "Fibonacci Sequence",
-    code: `
-      def fibonacci(n: int) -> int:
-          if n <= 1:
-              return n
-          return fibonacci(n - 1) + fibonacci(n - 2)
-    `,
-  },
-];
-
-export default function CodeStore() {
+export default function CodeSharingPage() {
+  const [codesData, setCodesData] = useState<Code[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const filteredCodes = codes.filter(
+
+  useEffect(() => {
+    fetch("codes.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setCodesData(data);
+        console.log(data); // add this line
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  const filteredCodes = codesData.filter(
     (code) =>
       code.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       code.code.toLowerCase().includes(searchTerm.toLowerCase())
@@ -52,11 +51,11 @@ export default function CodeStore() {
           {filteredCodes.map((code) => (
             <div
               key={code.title}
-              className=" shadow-md rounded-md p-4 bg-gray-50 text-gray-800"
+              className=" shadow-md rounded-md p-4 bg-transparent border border-white text-white"
             >
               <h2 className="text-lg font-medium mb-2">{code.title}</h2>
               <button
-                className="bg-gray-700 text-gray-100 font-normal text-xs px-4 py-2 mb-10 rounded-md"
+                className="border border-white bg-transparent hover:bg-white hover:text-gray-800 text-gray-100 font-normal text-xs px-4 py-2 mb-10 rounded-md"
                 onClick={() => handleCopyToClipboard(code.code)}
               >
                 Copy
