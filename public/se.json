@@ -1,34 +1,42 @@
 [
     {
         "title": "SRS",
-        "filename": "example.pdf"
+        "filename": "se/srs.pdf"
     },
     {
         "title": "WBS",
-        "filename": "example.pdf"
+        "filename": "se/wbs.xlsx"
+    },
+    {
+        "title": "Process Model",
+        "filename": "se/processmodel.pdf"
     },
     {
         "title": "CLASS DIAGRAM",
-        "filename": "example.pdf"
+        "filename": "se/classdiagram.mdj"
     },
     {
         "title": "USE CASE DIAGRAM",
-        "filename": ""
+        "filename": "se/usecasediagram.mdj"
     },
     {
         "title": "ACTIVITY DIAGRAM",
-        "filename": ""
+        "filename": "se/activitydiagram.mdj"
+    },
+    {
+        "title": "SEQUENCE DIAGRAM",
+        "filename": "se/sequencediagram.mdj"
     },
     {
         "title": "DATA FLOW DIAGRAM",
-        "filename": ""
+        "filename": "se/dataflowdiagram.mdj"
     },
     {
         "title": "STATE CHART DIAGRAM",
-        "filename": ""
+        "filename": "se/statechartdiagram.mdj"
     },
     {
         "title": "ER DIAGRAM",
-        "filename": ""
+        "filename": "se/erdiagram.mdj"
     }
 ]

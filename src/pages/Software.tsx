@@ -29,7 +29,7 @@ export default function CodeSharingPage() {
 
   const saveFile = (code: string, filename: string) => {
     saveAs(
-      `${code}.pdf`
+      `${code}`
     );
   };
 
