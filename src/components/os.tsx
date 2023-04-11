@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Navbar from "./Navbar";
 
 type Code = {
   title: string;
@@ -10,7 +11,7 @@ export default function CodeSharingPage() {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch("codes.json")
+    fetch("os.json")
       .then((response) => response.json())
       .then((data) => {
         setCodesData(data);
@@ -37,6 +38,7 @@ export default function CodeSharingPage() {
 
   return (
     <div className="min-h-screen text-white w-screen">
+      <Navbar />
       <div className="container mx-auto py-8 w-full p-10">
         <div className="flex justify-center mb-4">
           <input
