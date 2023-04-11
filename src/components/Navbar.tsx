@@ -5,8 +5,7 @@ import NavItem from "./NavItem";
 
 const MENU_LIST = [
   { text: "OS", href: "/" },
-  { text: "SE", href: "/se" },
-  { text: "MPMC", href: "/mpmc" },
+  { text: "SE", href: "/Software" },
 ];
 const Navbar = () => {
   const [navActive, setNavActive] = useState(true);
