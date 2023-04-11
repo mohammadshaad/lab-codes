@@ -6,6 +6,7 @@ import NavItem from "./NavItem";
 const MENU_LIST = [
   { text: "OS", href: "/" },
   { text: "SE", href: "/Software" },
+  { text: "DBMS", href: "/Database" },
   { text: "Maths", href: "/Maths" },
 ];
 const Navbar = () => {
