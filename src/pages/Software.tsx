@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
+import { saveAs } from "file-saver";
 
 type Code = {
   title: string;
-  code: string;
+  filename: string;
 };
 
 export default function CodeSharingPage() {
@@ -23,17 +24,13 @@ export default function CodeSharingPage() {
   const filteredCodes = codesData.filter(
     (code) =>
       code.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      code.code.toLowerCase().includes(searchTerm.toLowerCase())
+      code.filename.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleCopyToClipboard = (code: string) => {
-    const tempTextArea = document.createElement("textarea");
-    tempTextArea.value = code;
-    document.body.appendChild(tempTextArea);
-    tempTextArea.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempTextArea);
-    alert("Code copied to clipboard!");
+  const saveFile = (code: string, filename: string) => {
+    saveAs(
+      `${code}.pdf`
+    );
   };
 
   return (
@@ -58,7 +55,7 @@ export default function CodeSharingPage() {
               <h2 className="text-lg font-medium mb-2">{code.title}</h2>
               <button
                 className="border border-white bg-transparent hover:bg-white hover:text-gray-800 text-gray-100 font-normal text-xs px-4 py-2 mb-10 rounded-md"
-                onClick={() => handleCopyToClipboard(code.code)}
+                onClick={() => saveAs(code.filename)}
               >
                 Download
               </button>

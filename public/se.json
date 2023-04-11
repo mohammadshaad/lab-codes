@@ -1,34 +1,34 @@
 [
     {
         "title": "SRS",
-        "content": ""
+        "filename": "example.pdf"
     },
     {
         "title": "WBS",
-        "content": ""
+        "filename": "example.pdf"
     },
     {
         "title": "CLASS DIAGRAM",
-        "content": ""
+        "filename": "example.pdf"
     },
     {
         "title": "USE CASE DIAGRAM",
-        "content": ""
+        "filename": ""
     },
     {
         "title": "ACTIVITY DIAGRAM",
-        "content": ""
+        "filename": ""
     },
     {
         "title": "DATA FLOW DIAGRAM",
-        "content": ""
+        "filename": ""
     },
     {
         "title": "STATE CHART DIAGRAM",
-        "content": ""
+        "filename": ""
     },
     {
         "title": "ER DIAGRAM",
-        "content": ""
+        "filename": ""
     }
 ]
