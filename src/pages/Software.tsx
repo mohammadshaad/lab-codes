@@ -59,7 +59,7 @@ export default function CodeSharingPage() {
               >
                 Download
               </button>
-              <pre className="text-sm whitespace-pre-wrap">{code.code}</pre>
+              {/* <pre className="text-sm whitespace-pre-wrap">{code.code}</pre> */}
             </div>
           ))}
         </div>
