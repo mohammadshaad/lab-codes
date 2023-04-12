@@ -8,6 +8,8 @@ const MENU_LIST = [
   { text: "SE", href: "/Software" },
   { text: "DBMS", href: "/Database" },
   { text: "Maths", href: "/Maths" },
+  { text: "CN", href: "/Networks" },
+  { text: "CD", href: "/Compiler" },
 ];
 const Navbar = () => {
   const [navActive, setNavActive] = useState(true);
