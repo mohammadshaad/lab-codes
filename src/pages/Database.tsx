@@ -12,7 +12,7 @@ export default function CodeSharingPage() {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch("dbms.json")
+    fetch("cd.json")
       .then((response) => response.json())
       .then((data) => {
         setCodesData(data);
