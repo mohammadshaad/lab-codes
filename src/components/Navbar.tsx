@@ -5,6 +5,7 @@ import NavItem from "./NavItem";
 
 const MENU_LIST = [
   { text: "OS", href: "/" },
+  { text: "MPMC", href: "/Micro" },
   { text: "SE", href: "/Software" },
   { text: "DBMS", href: "/Database" },
   { text: "Maths", href: "/Maths" },
