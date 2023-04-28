@@ -18,28 +18,33 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="nav flex items-center justify-center text-xl">
-       
-        <div
-          onClick={() => setNavActive(!navActive)}
-          className="flex items-center justify-center"
-        >
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div className={`${navActive ? "active" : ""} flex items-center justify-center gap-10`}>
-          {MENU_LIST.map((menu, idx) => (
-            <div
-              onClick={() => {
-                setActiveIdx(idx);
-                setNavActive(false);
-              }}
-              key={menu.text}
-            >
-              <NavItem active={activeIdx === idx} {...menu} />
-            </div>
-          ))}
+      <nav className="nav flex items-center justify-center text-xl  ">
+        <div className="">
+          <div
+            onClick={() => setNavActive(!navActive)}
+            className="flex items-center justify-center"
+          >
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div
+            className={`${
+              navActive ? "active" : ""
+            } flex items-center justify-center md:gap-10 space-x-6  flex-wrap`}
+          >
+            {MENU_LIST.map((menu, idx) => (
+              <div
+                onClick={() => {
+                  setActiveIdx(idx);
+                  setNavActive(false);
+                }}
+                key={menu.text}
+              >
+                <NavItem active={activeIdx === idx} {...menu} />
+              </div>
+            ))}
+          </div>
         </div>
       </nav>
     </header>
