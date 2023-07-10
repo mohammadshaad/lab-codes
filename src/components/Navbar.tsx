@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -12,16 +13,21 @@ const MENU_LIST = [
   { text: "CN", href: "/Networks" },
   { text: "CD", href: "/Compiler" },
 ];
+
 const Navbar = () => {
+  const router = useRouter();
   const [navActive, setNavActive] = useState(true);
-  const [activeIdx, setActiveIdx] = useState(0);
+
+  const handleToggleNav = () => {
+    setNavActive(!navActive);
+  };
 
   return (
     <header>
-      <nav className="nav flex items-center justify-center text-xl  ">
+      <nav className="nav flex items-center justify-center text-xl">
         <div className="">
           <div
-            onClick={() => setNavActive(!navActive)}
+            onClick={handleToggleNav}
             className="flex items-center justify-center"
           >
             <div></div>
@@ -35,13 +41,13 @@ const Navbar = () => {
           >
             {MENU_LIST.map((menu, idx) => (
               <div
-                onClick={() => {
-                  setActiveIdx(idx);
-                  setNavActive(false);
-                }}
+                onClick={handleToggleNav}
                 key={menu.text}
               >
-                <NavItem active={activeIdx === idx} {...menu} />
+                <NavItem
+                  active={router.pathname === menu.href}
+                  {...menu}
+                />
               </div>
             ))}
           </div>
