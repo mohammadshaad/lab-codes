@@ -5,13 +5,13 @@ import React, { useState } from "react";
 import NavItem from "./NavItem";
 
 const MENU_LIST = [
-  { text: "OS", href: "/" },
+  { text: "CN", href: "/" },
+  { text: "CD", href: "/Compiler" },
+  { text: "OS", href: "/Operating" },
   { text: "MPMC", href: "/Micro" },
   { text: "SE", href: "/Software" },
   { text: "DBMS", href: "/Database" },
   { text: "Maths", href: "/Maths" },
-  { text: "CN", href: "/Networks" },
-  { text: "CD", href: "/Compiler" },
 ];
 
 const Navbar = () => {
