@@ -8,12 +8,12 @@ type Code = {
 
 export default function CodeSharingPage() {
   const [codesData, setCodesData] = useState<Code[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
     fetch("os.json")
       .then((response) => response.json())
-      .then((data) => {
+      .then((data: Code[]) => {
         setCodesData(data);
         console.log(data); // add this line
       })
@@ -21,7 +21,7 @@ export default function CodeSharingPage() {
   }, []);
 
   const filteredCodes = codesData.filter(
-    (code) =>
+    (code: Code) =>
       code.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       code.code.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -37,7 +37,7 @@ export default function CodeSharingPage() {
   };
 
   return (
-    <div className="min-h-screen text-white w-screen">
+    <div className="min-h-screen text-white w-screen p-20">
       <Navbar />
       <div className="container mx-auto py-8 w-full p-10">
         <div className="flex justify-center mb-4">
@@ -49,11 +49,11 @@ export default function CodeSharingPage() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-          {filteredCodes.map((code) => (
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {filteredCodes.map((code: Code) => (
             <div
               key={code.title}
-              className=" shadow-md rounded-md p-4 bg-transparent border border-white text-white"
+              className="shadow-md rounded-md p-4 bg-transparent border border-white text-white"
             >
               <h2 className="text-lg font-medium mb-2">{code.title}</h2>
               <button

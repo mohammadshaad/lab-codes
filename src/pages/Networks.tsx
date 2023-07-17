@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
-import { saveAs } from "file-saver";
 
 type Code = {
   title: string;
-  filename: string;
+  code: string;
 };
 
 export default function CodeSharingPage() {
+
   const [codesData, setCodesData] = useState<Code[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
     fetch("cn.json")
       .then((response) => response.json())
-      .then((data) => {
+      .then((data: Code[]) => {
         setCodesData(data);
         console.log(data); // add this line
       })
@@ -22,19 +22,24 @@ export default function CodeSharingPage() {
   }, []);
 
   const filteredCodes = codesData.filter(
-    (code) =>
+    (code: Code) =>
       code.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      code.filename.toLowerCase().includes(searchTerm.toLowerCase())
+      code.code.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const saveFile = (code: string, filename: string) => {
-    saveAs(
-      `${code}`
-    );
+  const handleCopyToClipboard = (code: string) => {
+    const tempTextArea = document.createElement("textarea");
+    tempTextArea.value = code;
+    document.body.appendChild(tempTextArea);
+    tempTextArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempTextArea);
+    alert("Code copied to clipboard!");
   };
 
+
   return (
-    <div className="min-h-screen text-white w-screen mt-20">
+    <div className="min-h-screen text-white w-screen p-20">
       <Navbar />
       <div className="container mx-auto py-8 w-full p-10">
         <div className="flex justify-center mb-4">
@@ -55,11 +60,11 @@ export default function CodeSharingPage() {
               <h2 className="text-lg font-medium mb-2">{code.title}</h2>
               <button
                 className="border border-white bg-transparent hover:bg-white hover:text-gray-800 text-gray-100 font-normal text-xs px-4 py-2 mb-10 rounded-md"
-                onClick={() => saveAs(code.filename)}
+                onClick={() => handleCopyToClipboard(code.code)}
               >
-                Download
+                Copy
               </button>
-              {/* <pre className="text-sm whitespace-pre-wrap">{code.code}</pre> */}
+              <pre className="text-sm whitespace-pre-wrap">{code.code}</pre>
             </div>
           ))}
         </div>
