@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="nav flex items-center justify-center text-xl">
+      <nav className="nav flex items-center justify-center text-xl p-8 md:p-0">
         <div className="">
           <div
             onClick={handleToggleNav}

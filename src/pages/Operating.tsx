@@ -37,7 +37,7 @@ export default function CodeSharingPage() {
   };
 
   return (
-    <div className="min-h-screen text-white w-screen p-20">
+    <div className="min-h-screen text-white w-screen md:p-20">
       <Navbar />
       <div className="container mx-auto py-8 w-full p-10">
         <div className="flex justify-center mb-4">
