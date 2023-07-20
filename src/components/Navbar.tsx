@@ -12,6 +12,7 @@ const MENU_LIST = [
   { text: "SE", href: "/Software" },
   { text: "DBMS", href: "/Database" },
   { text: "Maths", href: "/Maths" },
+  { text: "Temp", href: "/Temp" }
 ];
 
 const Navbar = () => {
